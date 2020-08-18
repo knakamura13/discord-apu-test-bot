@@ -1,6 +1,6 @@
-# Discord Node Chat Bot Template
+# Discord APU Test Bot
 
-A simple Discord bot made with Node.js
+A simple Discord bot made with Node.js for the APU Community server
 
 ## Prerequisites
 
