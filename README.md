@@ -38,3 +38,4 @@ Add your bot to the #general channel
     "chalk": "^4.1.0",
     "discord.js": "^12.3.1",
     "node": "^14.8.0"
+    "dotenv": "^8.2.0",
