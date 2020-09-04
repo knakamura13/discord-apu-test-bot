@@ -98,7 +98,7 @@ client.on('ready', () => {
 
     // Join the 'general' channel
     client.channels.fetch(CONFIG.channels.general).then((channel) => {
-        channel.send('Discord bot has joined the channel')
+        //channel.send('Discord bot has joined the channel')
         console.log(
             colors.yellow(`Joined a channel: ${colors.yellow(channel.name)}`),
         )
@@ -126,4 +126,30 @@ client.on('message', (msg) => {
 })
 
 // Login with the bot's token
-client.login(CONFIG.token).then()
+client.login(CONFIG.token).then(async () => {
+    const tempGuild = client.guilds.cache.get('743597793326661682'),
+        Guild = {
+            MemberManager: tempGuild.members,
+            RoleManager: tempGuild.roles,
+        }
+
+    Guild.RoleManager.fetch().then((roles) => {
+        for (let role of roles.cache) {
+            role = role[1]
+
+            const { name, color, id } = role,
+                hex = color.toString(16)
+
+            console.log(colors.hex(`#${hex}`)(name))
+        }
+    })
+
+    Guild.MemberManager.fetch().then(async (members) => {
+        console.log('Members: ')
+        for (let member of members) {
+            member = member[1]
+            member.guild.roles.cache.find()
+            console.log(roles)
+        }
+    })
+})
